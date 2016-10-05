@@ -1,0 +1,25 @@
+{
+  "name": "interactive-shopping-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arctic-fox-2016/interactive-shopping-cart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arctic-fox-2016/interactive-shopping-cart/issues"
+  },
+  "homepage": "https://github.com/arctic-fox-2016/interactive-shopping-cart#readme",
+  "dependencies": {
+    "cors": "^2.8.1",
+    "express": "^4.14.0",
+    "mongoose": "^4.6.2",
+    "multer": "^1.2.0"
+  }
+}

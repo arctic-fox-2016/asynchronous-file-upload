@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  CUSTOMERS
+  <table>
+  <% for (let i in customers){ %>
+    <tr>
+      <td>Member_ID: <%= customers[i].member_id %></td>
+      <td>Name: <%= customers[i].name %></td>
+      <td>Address: <%= customers[i].address %></td>
+      <td>Zipcode: <%= customers[i].zipcode %></td>
+      <td>Phone: <%= customers[i].phone %></td>
+      <td><form action="api/customers/delete/<%= customers[i]._id %>" method="POST"><input type="submit" value="delete"></form></td>
+      <td><form action="/customers/edit/<%= customers[i]._id %>" method="POST"><input type="submit" value="edit"></form></td>
+    </tr>
+  <% } %>
+  </table>
+  <br>
+  ITEMS
+  <table>
+    <% for (let i in items){ %>
+      <tr>
+        <td>Item_Code: <%= items[i].item_code %></td>
+        <td>Name: <%= items[i].name %></td>
+        <td>Description: <%= items[i].description %></td>
+        <td>Price: <%= items[i].price %></td>
+        <td>Stock: <%= items[i].stock %></td>
+        <td><form action="api/items/delete/<%= items[i]._id %>" method="POST"><input type="submit" value="delete"></form></td>
+        <td><form action="/items/edit/<%= items[i]._id %>" method="POST"><input type="submit" value="edit"></form></td>
+      </tr>
+    <% } %>
+  </table>
+  <br>
+  CART<br>
+  <table>
+    <% for (let i in carts){ %>
+      <tr><td>Member Name: <%= carts[i].member.name %></td></tr>
+      <tr><td>Transaction_Date: <%= carts[i].transaction_date %></td></tr>
+      <tr><td>ITEM LIST</td></tr>
+      <% for (let j in carts[i].itemList){ %>
+        <tr><td>Name: <%= carts[i].itemList[j].item_detail.name %></td><td>Price: <%= carts[i].itemList[j].item_detail.price %></td><td>Quantity: <%= carts[i].itemList[j].qty %></td></tr>
+      <% } %>
+    <% } %>
+  </table>
+</body>
+</html>
