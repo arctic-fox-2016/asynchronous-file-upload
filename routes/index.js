@@ -3,6 +3,7 @@ var router = express.Router();
 var fs = require('fs');
 var path = require('path');
 var fileUpload = require('express-fileupload');
+var im = require('imagemagick');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -27,6 +28,8 @@ router.post('/upload', function(req, res) {
  }
 
  item_image = req.files.files
+
+ var thumbPath = path.join(__dirname,'../public/uploads/thumbs/')+item_image['name']
  var realpath = path.join(__dirname,'../public/uploads/')+item_image['name']
  console.log(item_image);
  item_image.mv(realpath, function(err) {
@@ -34,25 +37,26 @@ router.post('/upload', function(req, res) {
          res.status(500).send(err);
      }
      else {
-       var respon = {"files": [
+       im.resize({
+                 srcPath: realpath,
+                 dstPath: thumbPath,
+                 width:   200
+               }, function(err, stdout, stderr){
+                 if (err) throw err;
+                 console.log('resized image to fit within 200x200px');
+               });
+var re = {"files": [
   {
-    "name": req.headers.host+'/uploads/'+item_image['name'],
+    "name": item_image['name'],
     "size": 902604,
-    "url": "http:\/\/example.org\/files\/picture1.jpg",
-    "thumbnailUrl": "http:\/\/example.org\/files\/thumbnail\/picture1.jpg",
-    "deleteUrl": "http:\/\/example.org\/files\/picture1.jpg",
-    "deleteType": "DELETE"
-  },
-  {
-    "name": "picture2.jpg",
-    "size": 841946,
-    "url": "http:\/\/example.org\/files\/picture2.jpg",
-    "thumbnailUrl": "http:\/\/example.org\/files\/thumbnail\/picture2.jpg",
-    "deleteUrl": "http:\/\/example.org\/files\/picture2.jpg",
+    "url": "http:\/\/localhost:3000\/uploads\/" + item_image['name'],
+    "thumbnailUrl": "http:\/\/localhost:3000\/uploads\/thumbs\/" + item_image['name'],
+    "deleteUrl": "http:\/\/localhost:3000\/photos\/"+ item_image['name'],
     "deleteType": "DELETE"
   }
 ]}
-         res.send({'success':true, 'message':'photo berhasil diupload'});
+         //res.send({'success':true, 'message':'photo berhasil diupload'});
+         res.send(re);
      }
  });
 });
@@ -64,3 +68,22 @@ router.get('/uploads/fullsize/:file', function (req, res){
   res.writeHead(200, {'Content-Type': 'image/jpg' });
   res.end(img, 'binary');
 });
+
+router.delete('/photos/:name',function (req,res){
+  console.log('enter here');
+  var photoname = req.params.name
+
+  var thumbPath = path.join(__dirname,'../public/uploads/thumbs/')+photoname
+  var realpath = path.join(__dirname,'../public/uploads/')+photoname
+
+  fs.unlink(thumbPath);
+  fs.unlink(realpath);
+  console.log('file deleted');
+
+var re = {"files": [
+  {
+    photoname: true
+  }
+]}
+res.send(re);
+})
