@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  form.dropzone(action='/file-upload')
+  .fallback
+    input(name='file', type='file', multiple='')
+  .dz-preview.dz-file-preview
+  .dz-details
+    .dz-filename
+      span(data-dz-name='')
+    .dz-size(data-dz-size='')
+    img(data-dz-thumbnail='')
+  .dz-progress
+    span.dz-upload(data-dz-uploadprogress='')
+  .dz-success-mark
+    span ✔
+  .dz-error-mark
+    span ✘
+  .dz-error-message
+    span(data-dz-errormessage='')
+  img(src='/images/remove.png', alt='Click me to remove the file.', data-dz-remove='', id='removebtn')
