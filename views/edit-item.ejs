@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+</head>
+<body>
+  EDIT CUSTOMER INFORMATION
+  <table>
+    <form action="/api/items/edit/success/<%= item._id %>" method="POST">
+      <tr><td>item_code:</td><td><input type="text" value="<%= item.item_code %>" name="item_code"></td></tr>
+      <tr><td>Name:</td><td><input type="text" value="<%= item.name %>" name="name"></td></tr>
+      <tr><td>description:</td> <td><input type="text" value="<%= item.description %>" name="description"></td></tr>
+      <tr><td>price:</td><td><input type="number" value="<%= item.price %>" name="price"></td></tr>
+      <tr><td>stock:</td><td><input type="number" value="<%= item.stock %>" name="stock"></td></tr>
+      <tr><td><input type=submit></td></tr>
+    </form>
+  <table>
+</body>
+</html>
