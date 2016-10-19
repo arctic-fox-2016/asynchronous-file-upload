@@ -1,0 +1,22 @@
+html{
+	position: relative;
+	min-height: 100%;
+}
+html,
+body{
+	background: $color-main-1;
+	font-family: $font-fam-2;
+	font-size: $font-size;
+}
+::-webkit-input-placeholder{
+	opacity: 0.5;
+}
+:-moz-placeholder{
+	opacity: 0.5;
+}
+::-moz-placeholder{
+	opacity: 0.5;
+}
+:-ms-input-placeholder{
+	opacity: 0.5;
+}

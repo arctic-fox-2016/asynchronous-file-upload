@@ -1,0 +1,28 @@
+@import 'base/_variable.scss';
+@import 'base/_mixins.scss';
+@import 'base/_reset.scss';
+@import 'base/_base.scss';
+
+section#app{
+  padding-top: 100px;
+  padding-bottom: 100px;
+  hr{
+    border-color: $color-shade-1;
+    margin: 30px auto;
+    width: 50%;
+  }
+}
+
+section#copyright{
+  background: $color-shade-1;
+  border-top-right-radius: 100%;
+  padding: 20px 40px 10px 10px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  *{
+    color: $color-main-1;
+    font-family: $font-fam-1;
+    font-weight: bold;
+  }
+}

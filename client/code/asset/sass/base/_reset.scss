@@ -1,0 +1,129 @@
+/*
+	File : _reset.scss
+	Desc : To override default bootstrap css
+*/
+.row.no-gutter{
+	margin: 0px;
+	> [class*="col-"]{
+		padding: 0px;
+	}
+}
+[class*="col-"].no-gutter{
+	padding: 0px;
+}
+img{
+	@include manipulation-none();
+}
+a{
+	color: $color-shade-5 !important;
+	cursor: pointer;
+	outline: none !important;
+	text-decoration: none !important;
+}
+h1, h2, h3, h4, h5, h6{
+	margin: 0px;
+}
+p{
+	margin: 0px;
+}
+.form-group{
+	margin: 0px;
+}
+.form-group + .form-group{
+	margin-top: 15px;
+}
+
+.thumbnail{
+	.viewer{
+		position: relative;
+		img{
+			width: 100%;
+		}
+		ul.note{
+			list-style: none;
+			margin: 0px;
+			padding: 0px;
+			position: absolute;
+			bottom: 10px;
+			left: 10px;
+			li{
+				background: $color-shade-1;
+				display: inline-block;
+				padding: 3px 7px;
+			}
+			li:nth-child(n+2){
+				margin-left: 3px;
+			}
+		}
+	}
+	.caption{
+		padding-top: 20px;
+		.description{
+			color: $color-shade-3;
+			font-size: 12px;
+			margin-top: 10px;
+		}
+	}
+}
+.modal{
+	.modal-content{
+		border: 0px;
+		border-radius: 0px;
+		box-shadow: none;
+		.modal-header{
+			background: $color-main-1;
+			border-bottom: 0px;
+			position: relative;
+			text-align: right;
+			button.close{
+				background: $color-shade-1;
+				color: $color-main-1;
+				font-size: 17px;
+				margin: 0px;
+				opacity: 1;
+				padding: 0px 20px;
+				position: absolute;
+				top: 6.5px;
+		    left: 6.5px;
+				outline: none !important;
+		    height: 40px;
+				span{
+					opacity: 0.5;
+				}
+				&:hover, &:focus{
+					span{
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	hr{
+		border-color: $color-shade-2 !important;
+		margin: 15px 0px !important;
+		width: 100% !important;
+	}
+	.image-block{
+		background: $color-shade-3;
+		display: table-cell;
+		height: 300px;
+		vertical-align: middle;
+		img{
+			width: 100%;
+		}
+	}
+	.map-block{
+		.map-viewer{
+			background: $color-shade-3;
+			height: 300px;
+		}
+	}
+	.detail-block{
+		.title{
+
+		}
+		.description{
+			color: $color-shade-3;
+		}
+	}
+}

@@ -1,0 +1,152 @@
+/*
+	File : _reset.scss
+	Desc : To override default bootstrap css
+*/
+.row.no-gutter {
+  margin: 0px; }
+  .row.no-gutter > [class*="col-"] {
+    padding: 0px; }
+
+[class*="col-"].no-gutter {
+  padding: 0px; }
+
+img {
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  user-drag: none; }
+
+a {
+  color: #252525 !important;
+  cursor: pointer;
+  outline: none !important;
+  text-decoration: none !important; }
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0px; }
+
+p {
+  margin: 0px; }
+
+.form-group {
+  margin: 0px; }
+
+.form-group + .form-group {
+  margin-top: 15px; }
+
+.thumbnail .viewer {
+  position: relative; }
+  .thumbnail .viewer img {
+    width: 100%; }
+  .thumbnail .viewer ul.note {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    bottom: 10px;
+    left: 10px; }
+    .thumbnail .viewer ul.note li {
+      background: #FFFFFF;
+      display: inline-block;
+      padding: 3px 7px; }
+    .thumbnail .viewer ul.note li:nth-child(n+2) {
+      margin-left: 3px; }
+
+.thumbnail .caption {
+  padding-top: 20px; }
+  .thumbnail .caption .description {
+    color: #9A9A9A;
+    font-size: 12px;
+    margin-top: 10px; }
+
+.modal .modal-content {
+  border: 0px;
+  border-radius: 0px;
+  box-shadow: none; }
+  .modal .modal-content .modal-header {
+    background: #A8CF45;
+    border-bottom: 0px;
+    position: relative;
+    text-align: right; }
+    .modal .modal-content .modal-header button.close {
+      background: #FFFFFF;
+      color: #A8CF45;
+      font-size: 17px;
+      margin: 0px;
+      opacity: 1;
+      padding: 0px 20px;
+      position: absolute;
+      top: 6.5px;
+      left: 6.5px;
+      outline: none !important;
+      height: 40px; }
+      .modal .modal-content .modal-header button.close span {
+        opacity: 0.5; }
+      .modal .modal-content .modal-header button.close:hover span, .modal .modal-content .modal-header button.close:focus span {
+        opacity: 1; }
+
+.modal hr {
+  border-color: #DEDEDE !important;
+  margin: 15px 0px !important;
+  width: 100% !important; }
+
+.modal .image-block {
+  background: #9A9A9A;
+  display: table-cell;
+  height: 300px;
+  vertical-align: middle; }
+  .modal .image-block img {
+    width: 100%; }
+
+.modal .map-block .map-viewer {
+  background: #9A9A9A;
+  height: 300px; }
+
+.modal .detail-block .description {
+  color: #9A9A9A; }
+
+html {
+  position: relative;
+  min-height: 100%; }
+
+html,
+body {
+  background: #276f82;
+  font-family: "Fauna One", serif;
+  font-size: 14px; }
+
+::-webkit-input-placeholder {
+  opacity: 0.5; }
+
+:-moz-placeholder {
+  opacity: 0.5; }
+
+::-moz-placeholder {
+  opacity: 0.5; }
+
+:-ms-input-placeholder {
+  opacity: 0.5; }
+
+section#app {
+  padding-top: 100px;
+  padding-bottom: 100px; }
+  section#app hr {
+    border-color: #FFFFFF;
+    margin: 30px auto;
+    width: 50%; }
+
+section#copyright {
+  background: #FFFFFF;
+  border-top-right-radius: 100%;
+  padding: 20px 40px 10px 10px;
+  position: fixed;
+  left: 0px;
+  bottom: 0px; }
+  section#copyright * {
+    color: #A8CF45;
+    font-family: "Playfair Display", serif;
+    font-weight: bold; }
