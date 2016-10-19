@@ -1,0 +1,40 @@
+{
+  "name": "online-house-selling",
+  "version": "0.1.0",
+  "description": "e-Commerce for online house",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arctic-fox-2016/my-css-framework.git"
+  },
+  "keywords": [
+    "css",
+    "ivan",
+    "framework"
+  ],
+  "author": "Ivan Gerard <me@ivangerard.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arctic-fox-2016/my-css-framework/issues"
+  },
+  "homepage": "https://github.com/arctic-fox-2016/my-css-framework#readme",
+  "dependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "bootstrap": "^4.0.0-alpha.2",
+    "browser-sync": "^2.17.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-sass": "^2.3.2",
+    "jquery": "^3.1.1",
+    "webpack": "^1.13.2",
+    "webpack-stream": "^3.2.0"
+  },
+  "devDependencies": {
+
+  }
+}

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/css/normalize.css">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Amiko|Prompt" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/app.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC4aQ7qqMlcWpv2fOZ5o4nw1KuAJbbpWGQ"></script>
+    <script>
+        // In the following example, markers appear when the user clicks on the map.
+        // Each marker is labeled with a single alphabetical character.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var labelIndex = 0;
+        var marker
+
+        function initialize() {
+            var rukan = {
+                lat: -6.221611,
+                lng: 106.791328
+            };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 12,
+                center: rukan
+            });
+
+            // This event listener calls addMarker() when the map is clicked.
+            google.maps.event.addListener(map, 'click', function(event) {
+                addMarker(event.latLng, map);
+            });
+            addMarker(rukan, map)
+                // Add a marker at the center of the map.
+        }
+
+        // Adds a marker to the map.
+        function addMarker(location, map) {
+            // Add the marker at the clicked location, and add the next-available label
+            // from the array of alphabetical characters.
+            if (!marker) {
+                marker = new google.maps.Marker({
+                    position: location,
+                    label: labels[labelIndex++ % labels.length],
+                    map: map
+                });
+            } else {
+                marker.setPosition(location)
+            }
+        }
+        google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+</head>
+
+<body>
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+                <a class="navbar-brand" href="#">R****123.com</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Action</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li class="dropdown-header">Nav header</li>
+                            <li><a href="#">Separated link</a></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </div>
+    </nav>
+    <!--/.main-header-->
+
+    <div class="container">
+        <button type="button" class="btn btn-primary" id="btn-addlisting">Add Listing</button>
+
+      <p class="bg-primary padding20 margin20" id="message"></p>
+
+        <!-- <button type="button" class="btn btn-primary" id="btn-listlisting">List Listing</button> -->
+        <!-- <button type="button" class="btn btn-primary" id="btn-search">Search </button> -->
+
+
+
+        <div class="page-header">
+            <h1>Listing</h1>
+            <input type="email" class="form-control" id="search-box" placeholder="Email">
+        </div>
+        <div id="search-result">
+        </div>
+
+
+        <div class="panel panel-primary" id="listlisting">
+            <div class="panel-heading">
+                <h3 class="panel-title">List Listing</h3> </div>
+            <div class="panel-body" id="all-house">
+
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                            <div class="panel-footer">Panel footer</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                            <div class="panel-footer">Panel footer</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-md-4">
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                Panel content
+                            </div>
+                            <div class="panel-footer">Panel footer</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="addlisting" class="panel panel-primary margin20">
+            <div class="panel-heading">
+                <h3 class="panel-title">Add Listing</h3> </div>
+            <div class="panel-body">
+                <form id="inputlisting">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Title</label>
+                        <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Owner</label>
+                        <input type="text" class="form-control" id="owner" name="owner" placeholder="Owner">
+                    </div>
+                    <div class="form-group">
+                        <label for="comment">Address</label>
+                        <textarea class="form-control" rows="5" id="address" name="address"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Bathroom</label>
+                                <input type="text" class="form-control" id="bathroom" name="bathroom" placeholder="Bathroom">
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Bedroom</label>
+                                <input type="text" class="form-control" id="bedroom" name="title" placeholder="Bedroom">
+                            </div>
+                        </div>
+                        <!-- /.col-lg-6 -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="form-group">
+                        <label for="comment">Harga</label>
+                        <input class="form-control" rows="5" id="harga" placeholder="harga"name="address"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Gallery</label>
+                        <input type="file" id="exampleInputFile">
+                        <p class="help-block"></p>
+                    </div>
+                    <div class="form-group">
+                          <label for="comment">Pick your location</label>
+                        <div class="iframe-container" id="map">
+                            <!-- embed code here -->
+                        </div>
+                    </div>
+
+
+                    <div class="checkbox">
+                        <label>
+  <input type="checkbox"> Check me out
+</label>
+                    </div>
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </form>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+
+            <form ref='uploadForm'
+                id='uploadForm'
+                action='http://localhost:8080/api/upload'
+                method='post'
+                encType="multipart/form-data">
+                    <input type="file" name="sampleFile" />
+                    <input type='submit' value='Upload!' />
+            </form>
+
+
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">Copyright by Ivan Gerard</p>
+        </div>
+    </footer>
+
+    <script src="/assets/js/app.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
